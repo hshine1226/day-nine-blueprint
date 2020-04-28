@@ -3,13 +3,12 @@
 // <⚠️ /DONT DELETE THIS ⚠️>
 
 const input = document.querySelector(".js-input");
-const pending = document.querySelector(".pending");
 const pendingList = document.getElementById("pendingList");
 const finishedList = document.getElementById("finishedList");
 
 const PENDING = "PENDING";
 const FINISHED = "FINISHED";
-const TODOS_LS = "toDos";
+
 let toDos = [];
 let finished = [];
 
@@ -86,15 +85,15 @@ function paintFinishedList(text) {
   const span = document.createElement("span");
   span.innerText = text;
   const finishDelBtn = document.createElement("button");
-  finishDelBtn.innerText = "Delete";
+  finishDelBtn.innerText = "✖";
   const pendingBtn = document.createElement("button");
-  pendingBtn.innerText = "Pending";
+  pendingBtn.innerText = "⤴";
   const newId = finished.length + 1;
   li.id = newId;
   li.appendChild(span);
   li.appendChild(finishDelBtn);
   li.appendChild(pendingBtn);
-  pendingBtn.innerText = "Pending";
+
   finishedList.appendChild(li);
 
   finishDelBtn.addEventListener("click", handleFinishDelete);
@@ -108,13 +107,13 @@ function paintFinishedList(text) {
   saveFinish();
 }
 function paintPendingList(text) {
-  li = document.createElement("li");
-  span = document.createElement("span");
+  const li = document.createElement("li");
+  const span = document.createElement("span");
   span.innerText = text;
-  delBtn = document.createElement("button");
-  delBtn.innerText = "Delete";
-  finishBtn = document.createElement("button");
-  finishBtn.innerText = "Finish";
+  const delBtn = document.createElement("button");
+  delBtn.innerText = "✖";
+  const finishBtn = document.createElement("button");
+  finishBtn.innerText = "✔";
 
   const newId = toDos.length + 1;
   li.appendChild(span);
